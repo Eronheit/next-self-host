@@ -9,9 +9,13 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  /* if(!!request.headers.get('host') && !url.host.includes(request.headers.get('host') ?? '')) {
-    return NextResponse.redirect(new URL(url.pathname, request.headers.get('host') ?? ''));
-  } */
+  if(!!request.headers.get('host') && !url.host.includes(request.headers.get('host') ?? '')) {
+    url.host = request.headers.get('host') ?? '';
+    url.protocol = 'https:';
+    url.port = 'https'
+
+    return NextResponse.redirect(url);
+  }
 
 }
 
