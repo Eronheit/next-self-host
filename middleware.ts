@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
   }
 
   if(!!request.headers.get('host') && !url.host.includes(request.headers.get('host') ?? '')) {
-    return NextResponse.rewrite(new URL(url.pathname, request.headers.get('host') ?? ''));
+    return NextResponse.redirect(new URL(url.pathname, request.headers.get('host') ?? ''));
   }
 
 }
