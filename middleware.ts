@@ -12,7 +12,7 @@ export default async function middleware(request: NextRequest) {
   if(!!request.headers.get('host') && !url.host.includes(request.headers.get('host') ?? '')) {
     url.host = request.headers.get('host') ?? '';
     url.protocol = 'https:';
-    url.port = 'https'
+    url.port = ''
 
     return NextResponse.redirect(url);
   }
