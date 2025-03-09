@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   let pathToRedirect = path.startsWith('/') ? path : `/${path}`
 
   return NextResponse.redirect(
-    new URL(`${pathToRedirect}`, url),
+    new URL(`${pathToRedirect}`, req.url),
     307
   )
 }
