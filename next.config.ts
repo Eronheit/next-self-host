@@ -4,6 +4,14 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   // Recommended: this will reduce output
   // Docker image size by 80%+
+  async rewrites() {
+    return [
+      {
+        source: '/redirect:path*',
+        destination: '/api/redirect:path*'
+      },
+    ]
+  },
   output: 'standalone',
   // Optional: bring your own cache handler
   // cacheHandler: path.resolve('./cache-handler.mjs'),
