@@ -26,5 +26,5 @@ ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
 ENV PORT=3000
 
-ENV HOSTNAME="0.0.0.0"
+ENV HOSTNAME="eronheit.tech"
 CMD ["bun", "run", "server.js"]
